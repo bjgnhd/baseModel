@@ -2,11 +2,10 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'maven'
     id 'maven-publish'
-    id 'com.huawei.agconnect'
 }
-
+//友盟推送
+apply from: '../umeng.gradle'
 android {
     compileSdkVersion 30
 
@@ -32,6 +31,18 @@ android {
 configurations.all {
     resolutionStrategy {
         force 'androidx.core:core-ktx:1.6.0'
+    }
+}
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.gnhd.base'
+                artifactId = 'v'
+                version = '1.0.5'
+            }
+        }
     }
 }
 dependencies {
@@ -110,9 +121,6 @@ dependencies {
     //代理添加标题栏 https://github.com/DylanCaiCoding/LoadingStateView
     api 'com.github.DylanCaiCoding:LoadingStateView:3.0.1'
 
-    //高德地图 https://lbs.amap.com/api/android-navi-sdk/changelog
-    api 'com.amap.api:navi-3dmap:9.3.0_3dmap9.3.0'
-
     //相机、图片选择库 https://github.com/LuckSiege/PictureSelector
     api 'io.github.lucksiege:pictureselector:v3.10.5'
     // 图片压缩 (按需引入)
@@ -127,27 +135,17 @@ dependencies {
     //权限 https://github.com/guolindev/PermissionX
     api 'com.guolindev.permissionx:permissionx:1.6.4'
 
-    //扫码 https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-version-change-history-0000001050043947
-    //扫码 https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-integrating-sdk-0000001050042006
-    api 'com.huawei.hms:scanplus:2.6.0.300'
-
     //加载pdf https://github.com/wdeo3601/PDFView
     api 'com.wdeo3601:pdf-view:1.0.4'
 
     //AOP 插件库：https://mvnrepository.com/artifact/org.aspectj/aspectjrt
     api 'org.aspectj:aspectjrt:1.9.6'
-
-    //柱状图：https://github.com/PhilJay/MPAndroidChart
-    api 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-
+    
     //屏幕适配：https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
 
     //微信分享 https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
 //    api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.11'
-
-    //视频播放器 https://github.com/Jzvd/JZVideo
-    api 'cn.jzvd:jiaozivideoplayer:7.7.0'
 
     //指示器 https://github.com/angcyo/DslTabLayout
     api 'com.github.angcyo.DslTablayout:TabLayout:3.2.4'
@@ -160,15 +158,3 @@ dependencies {
 
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release
-                groupId = 'com.gnhd.base'
-                artifactId = 'v'
-                version = '1.0.4'
-            }
-        }
-    }
-}
