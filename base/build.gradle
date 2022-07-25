@@ -29,7 +29,11 @@ android {
     }
     buildFeatures.dataBinding = true
 }
-
+configurations.all {
+    resolutionStrategy {
+        force 'androidx.core:core-ktx:1.6.0'
+    }
+}
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     api 'androidx.appcompat:appcompat:1.4.0'
