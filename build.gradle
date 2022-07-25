@@ -3,15 +3,18 @@ buildscript {
     ext.kotlin_version = "1.6.10"
     repositories {
         google()
+        jcenter()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        // 配置HMS Core SDK的Maven仓地址。
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+// 增加agcp插件配置，推荐您使用最新版本的agcp插件。
+        //https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
+        classpath 'com.huawei.agconnect:agcp:1.7.0.300'
     }
 }
 
@@ -21,6 +24,8 @@ allprojects {
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
         maven { url 'https://jitpack.io' }
+        // 配置HMS Core SDK的Maven仓地址。
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 
