@@ -1,2 +1,2 @@
-[![](https://jitpack.io/v/boiyun/baseModel.svg)](https://jitpack.io/#boiyun/baseModel)
+[![](https://jitpack.io/v/bjgnhd/baseModel.svg)](https://jitpack.io/#bjgnhd/baseModel)
 # 基础库
