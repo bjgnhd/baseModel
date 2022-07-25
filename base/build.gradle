@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'maven-publish'
+    id 'com.huawei.agconnect'
 }
 //友盟推送
 apply from: '../umeng.gradle'
@@ -40,7 +41,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.0.5'
+                version = '1.0.6'
             }
         }
     }
@@ -140,7 +141,7 @@ dependencies {
 
     //AOP 插件库：https://mvnrepository.com/artifact/org.aspectj/aspectjrt
     api 'org.aspectj:aspectjrt:1.9.6'
-    
+
     //屏幕适配：https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
 

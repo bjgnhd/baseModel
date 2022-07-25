@@ -8,11 +8,15 @@ buildscript {
         maven { url 'https://jitpack.io' }
         //友盟
         maven { url 'https://repo1.maven.org/maven2/' }
+        // 配置HMS Core SDK的Maven仓地址。
+        maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-
+        // 增加agcp插件配置，推荐您使用最新版本的agcp插件。
+        //https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
+        classpath 'com.huawei.agconnect:agcp:1.7.0.300'
     }
 }
 
@@ -24,6 +28,8 @@ allprojects {
         maven { url 'https://jitpack.io' }
         //友盟
         maven { url 'https://repo1.maven.org/maven2/' }
+        // 配置HMS Core SDK的Maven仓地址。
+        maven { url 'https://developer.huawei.com/repo/' }
     }
 }
 
