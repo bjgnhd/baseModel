@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BaseModule</string>
+    <string name="send_code">获取验证码</string>
+
+
+    <string name="common_permission_hint">授权提示</string>
+    <string name="common_permission_message">使用此功能需要先授予%s</string>
+    <string name="common_permission_granted">授予</string>
+    <string name="common_permission_denied">取消</string>
+
+    <string name="common_permission_alert">授权提醒</string>
+    <string name="common_permission_fail_hint">授权失败，请正确授予权限</string>
+    <string name="common_permission_manual_fail_hint">获取权限失败，请手动授予权限</string>
+    <string name="common_permission_manual_assign_fail_hint">获取权限失败，请手动授予%s</string>
+    <string name="common_permission_goto_setting_page">前往授权</string>
+
+    <string name="common_permission_camera">相机权限</string>
+    <string name="common_permission_location">定位权限</string>
+    <string name="common_permission_location_background">后台定位权限</string>
+    <string name="common_permission_microphone">麦克风权限</string>
+    <string name="common_permission_phone">电话权限</string>
+    <string name="common_permission_storage">存储权限</string>
+</resources>

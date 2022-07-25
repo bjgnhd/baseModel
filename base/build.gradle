@@ -1,0 +1,194 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'maven'
+    id 'maven-publish'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures.dataBinding = true
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    api 'androidx.appcompat:appcompat:1.3.1'
+    api 'com.google.android.material:material:1.4.0'
+    api 'androidx.annotation:annotation:1.2.0'
+    api 'androidx.constraintlayout:constraintlayout:2.1.0'
+    api 'androidx.viewpager:viewpager:1.0.0'
+    api 'androidx.recyclerview:recyclerview:1.2.1'
+    api 'androidx.multidex:multidex:2.0.1'
+    api 'com.google.android:flexbox:1.0.0'
+
+    //协程
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    //依赖重复 64k问题
+    api 'com.android.support:multidex:1.0.3'
+
+    //Gson 解析容错：https://github.com/getActivity/GsonFactory
+    api 'com.github.getActivity:GsonFactory:6.2'
+
+    //gson：https://github.com/google/gson
+    api 'com.google.code.gson:gson:2.9.0'
+
+    //各种弹框 https://github.com/li-xiaojun/XPopup
+    api 'com.github.li-xiaojun:XPopup:2.8.11'
+    api 'com.github.li-xiaojun:XPopupExt:0.0.8'
+
+    //Glide加载图片 https://github.com/bumptech/glide
+    api 'com.github.bumptech.glide:glide:4.13.0'
+
+    //coil kotlin加载图片 https://github.com/coil-kt/coil/blob/main/README-zh.md
+    api 'io.coil-kt:coil:2.1.0'
+
+    //okHttp https://github.com/square/okhttp
+    api 'com.squareup.okhttp3:okhttp:4.9.3'
+
+    //------------------------------------------------------------东哥库------------------------------------------------------------------
+
+    //网络库 https://github.com/liangjingkanji/Net
+    api 'com.github.liangjingkanji:Net:3.4.12'
+
+    //列表库 https://github.com/liangjingkanji/BRV
+    api 'com.github.liangjingkanji:BRV:1.3.79'
+
+    //Log https://github.com/liangjingkanji/LogCat
+    api 'com.github.liangjingkanji:LogCat:1.2.4'
+
+    //吐司 https://github.com/liangjingkanji/Tooltip/
+    api 'com.github.liangjingkanji:Tooltip:1.2.1'
+
+    //事件分发 https://github.com/liangjingkanji/Channel
+    api 'com.github.liangjingkanji:Channel:1.1.4'
+
+    //序列化存储 https://github.com/liangjingkanji/Serialize
+    api 'com.github.liangjingkanji:Serialize:1.3.1'
+
+    //Span局部字体改变 https://github.com/liangjingkanji/spannable
+    api 'com.github.liangjingkanji:spannable:1.1.4'
+
+    //------------------------------------------------------------东哥库------------------------------------------------------------------
+
+    //列表刷新头部 https://github.com/scwang90/SmartRefreshLayout
+    api 'io.github.scwang90:refresh-header-material:2.0.5'    //谷歌刷新头
+
+    //状态栏 https://github.com/Zackratos/UltimateBarX
+    api 'com.gitee.zackratos:UltimateBarX:0.8.0'
+
+    //标题栏 https://github.com/getActivity/TitleBar
+    api 'com.github.getActivity:TitleBar:9.5'
+
+    //代理添加标题栏 https://github.com/DylanCaiCoding/LoadingStateView
+    api 'com.github.DylanCaiCoding:LoadingStateView:3.0.1'
+
+    //高德地图 https://lbs.amap.com/api/android-navi-sdk/changelog
+    api 'com.amap.api:navi-3dmap:9.3.0_3dmap9.3.0'
+
+    //相机、图片选择库 https://github.com/LuckSiege/PictureSelector
+    api 'io.github.lucksiege:pictureselector:v3.10.5'
+    // 图片压缩 (按需引入)
+    api 'io.github.lucksiege:compress:v3.10.4'
+
+    //圆角、阴影 https://github.com/lihangleo2/ShadowLayout
+    api 'com.github.lihangleo2:ShadowLayout:3.2.4'
+
+    //app升级 https://github.com/jenly1314/AppUpdater
+    api 'com.github.jenly1314.AppUpdater:app-updater:1.1.3'
+
+    //权限 https://github.com/guolindev/PermissionX
+    api 'com.guolindev.permissionx:permissionx:1.6.4'
+
+    //扫码 https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-version-change-history-0000001050043947
+    //扫码 https://developer.huawei.com/consumer/cn/doc/development/HMSCore-Guides/android-integrating-sdk-0000001050042006
+    api 'com.huawei.hms:scanplus:2.6.0.300'
+
+    //加载pdf https://github.com/wdeo3601/PDFView
+    api 'com.wdeo3601:pdf-view:1.0.4'
+
+    //AOP 插件库：https://mvnrepository.com/artifact/org.aspectj/aspectjrt
+    api 'org.aspectj:aspectjrt:1.9.6'
+
+    //柱状图：https://github.com/PhilJay/MPAndroidChart
+    api 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //屏幕适配：https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
+
+    //微信分享 https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
+//    api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.11'
+
+    //视频播放器 https://github.com/Jzvd/JZVideo
+    api 'cn.jzvd:jiaozivideoplayer:7.7.0'
+
+    //指示器 https://github.com/angcyo/DslTabLayout
+    api 'com.github.angcyo.DslTablayout:TabLayout:3.2.4'
+
+    //开关控件 https://github.com/bitvale/Switcher
+    api 'io.github.bitvale:switcher:1.1.2'
+
+    //Kotlin 工具库 https://github.com/DylanCaiCoding/Longan/blob/master/README_CN.md
+    //api 'com.github.DylanCaiCoding.Longan:longan:1.1.0'
+
+}
+/**
+ *生成本地aar，运行生成aar包
+ **/
+//ext {
+//    GITHUB_REPO_PATH = "F:\\gitdata\\baseModel"//本地储存路径
+//
+//    PUBLISH_GROUP_ID = 'com.gnhd.base'//包名
+//
+//    PUBLISH_ARTIFACT_ID = 'v'//自定义名
+//
+//    PUBLISH_VERSION = "1.0.1"//版本号，每一次更新迭代升级版本
+//}
+//uploadArchives {
+//    repositories.mavenDeployer {
+//        def deployPath = file(project.GITHUB_REPO_PATH)
+//        repository(url: "file://${deployPath.absolutePath}")
+//        pom.project {
+//            groupId project.PUBLISH_GROUP_ID
+//            artifactId project.PUBLISH_ARTIFACT_ID
+//            version project.PUBLISH_VERSION
+//        }
+//    }
+//}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.gnhd.base'
+                artifactId = 'v'
+                version = '1.0.1'
+            }
+        }
+    }
+}

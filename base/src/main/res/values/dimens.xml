@@ -1,0 +1,55 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+
+    <dimen name="shadow_layout_cornerRadius">16dp</dimen>
+
+    <dimen name="material_bottom_navigation_active_item_max_width">168dp</dimen>
+    <dimen name="material_bottom_navigation_height">56dp</dimen>
+    <dimen name="material_bottom_navigation_item_max_width">96dp</dimen>
+    <dimen name="material_bottom_navigation_item_min_width">56dp</dimen>
+    <dimen name="material_bottom_navigation_margin">8dp</dimen>
+    <dimen name="material_bottom_navigation_text_size">12sp</dimen>
+
+    <dimen name="divider">0.5dp</dimen>
+
+    <!--文字的大小-->
+    <dimen name="text_size_19">19sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+
+    <!--普通控件的宽高-->
+    <dimen name="width_40">40dp</dimen>
+    <dimen name="width__45">45dp</dimen>
+    <dimen name="width_50">50dp</dimen>
+    <dimen name="width_60">60dp</dimen>
+    <dimen name="width_55">55dp</dimen>
+
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="height__45">45dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <dimen name="height_55">55dp</dimen>
+    <!--    margin 距离-->
+    <dimen name="margin_15">15dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_35">35dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_60">60dp</dimen>
+    <dimen name="margin_55">55dp</dimen>
+
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_12">12dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+
+</resources>
