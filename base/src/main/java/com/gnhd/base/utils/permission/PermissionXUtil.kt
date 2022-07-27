@@ -1,56 +1,53 @@
 package com.gnhd.base.utils.permission
 
-import androidx.fragment.app.FragmentActivity
 import com.gnhd.base.manager.ActivityManager
 import com.gnhd.base.utils.DToastUtils
-import com.permissionx.guolindev.PermissionX
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.XXPermissions
 
 /**
  * <pre>
- * @author : Trial
- * @time   : 11/23/21
- * @desc   : 权限工具类
- * @version: 1.0
+ * author : Administrator
+ * time   : 2022/07/27
+ * desc   :
 </pre> *
  */
 object PermissionXUtil {
-    /**
-     * 如果授予此权限，则为 True，否则为 False
-     */
-    fun checkIsGranted(permission: String): Boolean {
-        return PermissionX.isGranted(ActivityManager.getInstance().getTopActivity(), permission)
-    }
 
     /**
-     * 申请权限
+     * 判断一个或多个权限是否全部授予了
      */
-    fun checkPermission(onRequestCallback: () -> Unit = {}, vararg permission: String) {
-        PermissionX.init(ActivityManager.getInstance().getTopActivity() as FragmentActivity)
-            .permissions(*permission)
-            .onExplainRequestReason { scope, deniedList, _ ->
-                val mList= mutableListOf<String>()
-                for (item in deniedList) {
-                    mList.add(PermissionConstants.getPermissionName(item))
-                }
-                scope.showRequestReasonDialog(deniedList, "该功能需要以下权限才能使用", "确定", "取消")
-            }
-            .onForwardToSettings { scope, deniedList ->
-                val mList= mutableListOf<String>()
-                for (item in deniedList) {
-                    mList.add(PermissionConstants.getPermissionName(item))
-                }
-                scope.showForwardToSettingsDialog(deniedList, "请在设置中允许以下权限", "去开启", "取消")
-            }
-            .request { allGranted, _, deniedList ->
-                if (allGranted) {
-                    onRequestCallback.invoke()
-                } else {
-                    val mList= mutableListOf<String>()
-                    for (item in deniedList) {
-                        mList.add(PermissionConstants.getPermissionName(item))
+    fun checkIsGranted(vararg permissions: String): Boolean {
+        return XXPermissions.isGranted(ActivityManager.getInstance().getTopActivity(), permissions)
+    }
+
+    fun checkPermission(onRequestCallback: () -> Unit = {}, vararg permissions: String) {
+        XXPermissions.with(ActivityManager.getInstance().getTopActivity())
+            // 申请单个权限
+            .permission(permissions)
+            // 设置权限请求拦截器（局部设置）
+            .interceptor(PermissionInterceptor())
+            .request(object : OnPermissionCallback {
+
+                override fun onGranted(permissions: MutableList<String>, all: Boolean) {
+                    if (all) {
+                        onRequestCallback.invoke()
+                    } else {
+                        DToastUtils.show("获取部分权限成功，但部分权限未正常授予")
                     }
-                    DToastUtils.show("您拒绝了如下权限：$mList")
                 }
-            }
+
+                override fun onDenied(permissions: MutableList<String>, never: Boolean) {
+                    if (never) {
+                        DToastUtils.show("被永久拒绝授权，请手动授予权限")
+                        // 如果是被永久拒绝就跳转到应用权限系统设置页面
+                        XXPermissions.startPermissionActivity(
+                            ActivityManager.getInstance().getTopActivity(), permissions
+                        )
+                    } else {
+                        DToastUtils.show("获取权限失败")
+                    }
+                }
+            })
     }
 }

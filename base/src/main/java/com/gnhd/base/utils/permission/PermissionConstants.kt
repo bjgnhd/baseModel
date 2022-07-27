@@ -1,7 +1,5 @@
 package com.gnhd.base.utils.permission
 
-import android.Manifest
-
 /**
  * <pre>
  * @author : Trial
@@ -12,30 +10,24 @@ import android.Manifest
  */
 object PermissionConstants {
 
-    private val perMap = mutableMapOf<String, String>()
+    /** 拨打电话  */
+    const val CALL_PHONE = "android.permission.CALL_PHONE"
 
-    const val STORE = Manifest.permission.WRITE_EXTERNAL_STORAGE
-    const val PHONE_STATE = Manifest.permission.READ_PHONE_STATE
-    const val CAMERA = Manifest.permission.CAMERA
-    const val RECORD_AUDIO = Manifest.permission.RECORD_AUDIO
-    const val READ_CONTACTS = Manifest.permission.READ_CONTACTS
-    const val CALL_PHONE = Manifest.permission.CALL_PHONE
-    const val ACCESS_COARSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION
-    const val ACCESS_FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION
+    /** 读取外部存储  */
+    const val READ_EXTERNAL_STORAGE = "android.permission.READ_EXTERNAL_STORAGE"
 
-    init {
-        perMap[STORE] = "存储"
-        perMap[PHONE_STATE] = "电话"
-        perMap[CAMERA] = "相机"
-        perMap[RECORD_AUDIO] = "麦克风"
-        perMap[READ_CONTACTS] = "通讯录"
-        perMap[CALL_PHONE] = "电话"
-        perMap[ACCESS_COARSE_LOCATION] = "模糊定位"
-        perMap[ACCESS_FINE_LOCATION] = "精确定位"
-    }
+    /** 写入外部存储  */
+    const val WRITE_EXTERNAL_STORAGE = "android.permission.WRITE_EXTERNAL_STORAGE"
 
-    fun getPermissionName(permission: String): String {
-        return perMap[permission] ?: ""
-    }
+    /** 相机权限  */
+    const val CAMERA = "android.permission.CAMERA"
 
+    /** 麦克风权限  */
+    const val RECORD_AUDIO = "android.permission.RECORD_AUDIO"
+
+    /** 获取精确位置  */
+    const val ACCESS_FINE_LOCATION = "android.permission.ACCESS_FINE_LOCATION"
+
+    /** 获取粗略位置  */
+    const val ACCESS_COARSE_LOCATION = "android.permission.ACCESS_COARSE_LOCATION"
 }
