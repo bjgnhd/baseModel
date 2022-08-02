@@ -1,5 +1,6 @@
 package com.gnhd.base.base
 
+import android.graphics.Color
 import android.view.View
 import androidx.annotation.ColorRes
 import androidx.annotation.LayoutRes
@@ -64,7 +65,7 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
             // 布局是否侵入状态栏（true 不侵入，false 侵入）
             fitWindow = true
             // 状态栏背景颜色（资源 id）
-            colorRes = R.color.color_0088FF
+            color = Color.parseColor(MAIN_COLOR)
             // 状态栏背景 drawable
 //            drawableRes = R.drawable.bg_common
             // 以上三个设置背景的方法用一个即可，如多次设置，后面的会把前面的覆盖掉
@@ -73,7 +74,7 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
             // 低版本 light 模式不生效，重新设置状态栏背景
             // 防止状态栏背景色跟字体颜色一致导致字体看不见
             // lvl 系列方法仅在低版本（不支持 light 模式的版本）下开启 light 模式生效
-            lvlColorRes = R.color.color_0088FF
+            lvlColor = Color.parseColor(MAIN_COLOR)
 //            lvlColorRes = getResColor(R.color.main_color)
 //            lvlDrawableRes = R.drawable.bg_lvl
             // 以上三个 lvl 方法用一个即可，如多次设置，后面的会把前面的覆盖掉
@@ -82,14 +83,14 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
 
     protected fun setStatusBar(
         _fitWindow: Boolean = true,
-        @ColorRes _color: Int = R.color.color_0088FF,
+        _color: Int = Color.parseColor(MAIN_COLOR),
         _light: Boolean = false
     ) {
         getStatusBarOnly {
             fitWindow = _fitWindow
-            colorRes = _color
+            color = _color
             light = _light
-            lvlColorRes = _color
+            lvlColor = _color
         }
     }
 

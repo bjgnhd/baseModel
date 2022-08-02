@@ -27,3 +27,5 @@ inline val appVersionName: String get() = packageInfo.versionName
 
 inline val appVersionCode: Long get() = PackageInfoCompat.getLongVersionCode(packageInfo)
 
+var MAIN_COLOR = "#0088FF"
+
