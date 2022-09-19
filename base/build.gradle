@@ -41,7 +41,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.1.1'
+                version = '1.1.2'
             }
         }
     }
@@ -120,9 +120,9 @@ dependencies {
     api 'com.github.DylanCaiCoding:LoadingStateView:3.0.1'
 
     //相机、图片选择库 https://github.com/LuckSiege/PictureSelector
-    api 'io.github.lucksiege:pictureselector:v3.10.6'
+    api 'io.github.lucksiege:pictureselector:v3.10.5'
     // 图片压缩 (按需引入)
-    api 'io.github.lucksiege:compress:v3.10.6'
+    api 'io.github.lucksiege:compress:v3.10.4'
 
     //圆角、阴影 https://github.com/lihangleo2/ShadowLayout
     api 'com.github.lihangleo2:ShadowLayout:3.2.4'
