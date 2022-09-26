@@ -383,7 +383,7 @@ object DateUtils {
     fun getTime2(time: String): String {
         val split = time?.split(" ")
         val s = split?.get(1)
-        return s?.substring(0, s.lastIndexOf(":"))
+        return s?.substring(0, s.lastIndexOf(":"))?:""
     }
 
 
