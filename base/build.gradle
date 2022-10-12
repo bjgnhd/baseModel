@@ -42,7 +42,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.1.5'
+                version = '1.1.6'
             }
         }
     }
