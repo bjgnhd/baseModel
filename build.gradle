@@ -12,7 +12,7 @@ buildscript {
         maven { url 'https://developer.huawei.com/repo/' }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.0"
+        classpath "com.android.tools.build:gradle:7.3.0"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // 增加agcp插件配置，推荐您使用最新版本的agcp插件。
         //https://developer.huawei.com/consumer/cn/doc/development/AppGallery-connect-Guides/agc-sdk-changenotes-0000001058732550
