@@ -39,11 +39,12 @@ abstract class BaseLazyFragment<B : ViewDataBinding>(@LayoutRes contentLayoutId:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = DataBindingUtil.bind(view)!!
     }
+    @Deprecated("Deprecated in Java")
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         prepareRequestData()
     }
-
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         isViewCreated = true
         prepareRequestData()

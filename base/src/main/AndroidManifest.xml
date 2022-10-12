@@ -3,5 +3,49 @@
     package="com.gnhd.base">
     <!--网络权限-->
     <uses-permission android:name="android.permission.INTERNET" />
+    <application>
+        <!-- VIVO厂商通道 start-->
+        <meta-data
+            android:name="com.vivo.push.api_key"
+            android:value="1b5ce9f6-8304-4afc-b739-0e07fb22775e" />
+        <!--            android:value="此处改为VIVO后台真实参数" />-->
+        <meta-data
+            android:name="com.vivo.push.app_id"
+            android:value="17979" />
+        <!--            android:value="此处改为VIVO后台真实参数" />-->
+        <!-- VIVO厂商通道 end-->
 
+        <!-- HUAWEI厂商通道 start-->
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="appid=100429257" />
+        <!--            android:value="appid=此处改为HUAWEI后台真实参数" />-->
+        <!-- HUAWEI厂商通道 end-->
+
+        <!-- Honor start-->
+        <meta-data
+            android:name="com.hihonor.push.app_id"
+            android:value="220671410" />
+        <!--            android:value="此处改为荣耀后台真实参数" />-->
+        <!-- Honor end-->
+
+        <!-- 厂商通道 Android 12 兼容 Start -->
+        <service
+            android:name="com.heytap.msp.push.service.DataMessageCallbackService"
+            android:exported="true" />
+        <service
+            android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
+            android:exported="true" />
+        <service
+            android:name="com.xiaomi.mipush.sdk.MessageHandleService"
+            android:exported="false" />
+        <service
+            android:name="com.xiaomi.push.service.XMPushService"
+            android:exported="false" />
+
+        <receiver
+            android:name="org.android.agoo.vivo.PushMessageReceiverImpl"
+            android:exported="false" />
+        <!-- 厂商通道 Android 12 兼容 End -->
+    </application>
 </manifest>

@@ -2,13 +2,10 @@ package com.gnhd.base.base
 
 import android.graphics.Color
 import android.view.View
-import androidx.annotation.ColorRes
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.gnhd.base.R
-import com.gnhd.base.aop.SingleClick
 import com.lxj.xpopup.XPopup
 import com.lxj.xpopup.impl.LoadingPopupView
 import com.zackratos.ultimatebarx.ultimatebarx.getStatusBarOnly
@@ -49,10 +46,8 @@ abstract class BaseActivity<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
         }
     }
 
-    @SingleClick
     protected abstract fun initView()
 
-    @SingleClick
     protected abstract fun initData()
 
     open fun needSetStatusBar(): Boolean {

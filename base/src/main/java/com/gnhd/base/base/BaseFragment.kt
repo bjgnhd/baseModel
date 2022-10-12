@@ -6,7 +6,6 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import com.gnhd.base.aop.SingleClick
 import com.lxj.xpopup.XPopup
 import com.lxj.xpopup.impl.LoadingPopupView
 
@@ -25,10 +24,8 @@ abstract class BaseFragment<B : ViewDataBinding>(@LayoutRes contentLayoutId: Int
     lateinit var binding: B
     private var loadingPopup: LoadingPopupView? = null
 
-    @SingleClick
     protected abstract fun initView()
 
-    @SingleClick
     protected abstract fun initData()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -8,21 +8,22 @@ dependencies {
 //    implementation('com.umeng.umsdk:push:6.4.3') {
 //        exclude group: 'com.umeng.umsdk', module: 'utdid'
 //    }
+
 //友盟一键登录（认证）sdk  https://developer.umeng.com/docs/143070/detail/144780
 
-    api 'com.umeng.umsdk:uverify:2.5.6'// 必选
+    api 'com.umeng.umsdk:uverify:2.5.7'// 必选
     api 'com.umeng.umsdk:uverify-main:2.1.4'// 必选
     api 'com.umeng.umsdk:uverify-logger:2.1.4'// 必选
     api 'com.umeng.umsdk:uverify-crashshield:2.1.4'// 必选
 
 //推送 https://developer.umeng.com/docs/67966/detail/173238
     //友盟推送库
-    api 'com.umeng.umsdk:push:6.5.1'
+    api 'com.umeng.umsdk:push:6.5.5'
     api 'com.umeng.umsdk:union:1.4.0'
 //华为厂商通道
 
-    api 'com.umeng.umsdk:huawei-umengaccs:1.3.8'
-    api 'com.huawei.hms:push:6.3.0.302'
+    api 'com.umeng.umsdk:huawei-umengaccs:1.4.0'
+    api 'com.huawei.hms:push:6.5.0.300'
 
 //OPPO厂商通道
     api 'com.umeng.umsdk:oppo-umengaccs:1.0.8-fix'
@@ -33,7 +34,7 @@ dependencies {
     api 'com.umeng.umsdk:vivo-push:3.0.0.4'
 
 //小米厂商通道
-    api 'com.umeng.umsdk:xiaomi-umengaccs:1.2.8-fix'
-    api 'com.umeng.umsdk:xiaomi-push:4.9.1'
+    api 'com.umeng.umsdk:xiaomi-umengaccs:1.3.1'
+    api 'com.umeng.umsdk:xiaomi-push:5.0.8'
 
 }
