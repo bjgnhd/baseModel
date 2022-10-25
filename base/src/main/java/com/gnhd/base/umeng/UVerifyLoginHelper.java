@@ -86,6 +86,7 @@ public class UVerifyLoginHelper {
             }
         };
         mPhoneNumberAuthHelper = UMVerifyHelper.getInstance(context, mTokenResultListener);
+        //设置SDK密钥
         mPhoneNumberAuthHelper.setAuthSDKInfo(key);
     }
 

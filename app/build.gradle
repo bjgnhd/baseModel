@@ -11,6 +11,7 @@ android {
     defaultConfig {
         applicationId "com.gnhd.demo"
         minSdkVersion 21
+        //noinspection ExpiringTargetSdkVersion
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"

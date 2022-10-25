@@ -42,7 +42,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.1.7'
+                version = '1.1.8'
             }
         }
     }
@@ -71,7 +71,7 @@ dependencies {
     api 'com.google.code.gson:gson:2.9.0'
 
     //各种弹框 https://github.com/li-xiaojun/XPopup
-    api 'com.github.li-xiaojun:XPopup:2.9.1'
+    api 'com.github.li-xiaojun:XPopup:2.9.6'
     api 'com.github.li-xiaojun:XPopupExt:1.0.0'
 
     //Glide加载图片 https://github.com/bumptech/glide
@@ -89,7 +89,7 @@ dependencies {
     api 'com.github.liangjingkanji:Net:3.5.1'
 
     //列表库 https://github.com/liangjingkanji/BRV
-    api 'com.github.liangjingkanji:BRV:1.3.82'
+    api 'com.github.liangjingkanji:BRV:1.3.83'
 
     //Log https://github.com/liangjingkanji/LogCat
     api 'com.github.liangjingkanji:LogCat:1.2.4'
@@ -126,7 +126,7 @@ dependencies {
     api 'io.github.lucksiege:compress:v3.10.6'
 
     //圆角、阴影 https://github.com/lihangleo2/ShadowLayout
-    api 'com.github.lihangleo2:ShadowLayout:3.2.4'
+    api 'com.github.lihangleo2:ShadowLayout:3.2.6'
 
     //app升级 https://github.com/jenly1314/AppUpdater
     api 'com.github.jenly1314.AppUpdater:app-updater:1.1.3'
@@ -139,9 +139,6 @@ dependencies {
 
     //屏幕适配：https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     api 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
-
-    //微信分享 https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/Android.html
-//    api 'com.tencent.mm.opensdk:wechat-sdk-android:6.8.11'
 
     //指示器 https://github.com/angcyo/DslTabLayout
     api 'com.github.angcyo.DslTablayout:TabLayout:3.2.5'
