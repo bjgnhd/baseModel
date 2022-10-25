@@ -126,7 +126,7 @@ dependencies {
     api 'io.github.lucksiege:compress:v3.10.6'
 
     //圆角、阴影 https://github.com/lihangleo2/ShadowLayout
-    api 'com.github.lihangleo2:ShadowLayout:3.2.6'
+    api 'com.github.lihangleo2:ShadowLayout:3.2.4'
 
     //app升级 https://github.com/jenly1314/AppUpdater
     api 'com.github.jenly1314.AppUpdater:app-updater:1.1.3'
