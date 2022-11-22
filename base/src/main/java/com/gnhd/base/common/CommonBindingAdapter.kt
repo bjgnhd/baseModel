@@ -22,10 +22,6 @@ object CommonBindingAdapter {
     @BindingAdapter(value = ["imageUrlRadius", "placeHolder"], requireAll = false)
     fun loadUrlRadiusTen(view: ImageView, url: String?, placeHolder: Drawable?) {
         //1. 加载图片
-//        Glide.with(view.context.applicationContext).load(url).apply(
-//            RequestOptions()
-//                .transform(CenterCrop(), RoundedCorners(10f.dp2px.toInt())))
-//            .placeholder(placeHolder).into(view)
         view.load(url) {
             transformations(RoundedCornersTransformation(10f))
             placeholder(placeHolder)
@@ -48,12 +44,6 @@ object CommonBindingAdapter {
     @BindingAdapter(value = ["visible"], requireAll = false)
     fun visible(view: View, visible: Boolean) {
         view.visibility = if (visible) View.VISIBLE else View.GONE
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["textColor"], requireAll = false)
-    fun setTextColor(textView: TextView, textColorRes: Int) {
-        textView.setTextColor(textView.resources.getColor(textColorRes))
     }
 
     @JvmStatic
