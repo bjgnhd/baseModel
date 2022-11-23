@@ -42,7 +42,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.2.2'
+                version = '1.2.3'
             }
         }
     }
@@ -121,7 +121,7 @@ dependencies {
     api 'com.github.DylanCaiCoding:LoadingStateView:3.0.1'
 
     //相机、图片选择库 https://github.com/LuckSiege/PictureSelector
-    api 'io.github.lucksiege:pictureselector:v3.10.6'
+    api 'io.github.lucksiege:pictureselector:v3.10.7'
     // 图片压缩 (按需引入)
     api 'io.github.lucksiege:compress:v3.10.7'
 
