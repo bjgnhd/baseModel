@@ -42,7 +42,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.2.3'
+                version = '1.2.4'
             }
         }
     }
@@ -146,5 +146,7 @@ dependencies {
     //开关控件 https://github.com/bitvale/Switcher
     api 'io.github.bitvale:switcher:1.1.2'
 
+    //https://github.com/BzCoder/EasyGlide
+    api 'com.github.BzCoder:EasyGlide:2.0.1'
 }
 

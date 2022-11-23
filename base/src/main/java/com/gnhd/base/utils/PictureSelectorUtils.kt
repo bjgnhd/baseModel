@@ -66,7 +66,7 @@ object PictureSelectorUtils {
             .openGallery(SelectMimeType.ofImage())
             .setMaxSelectNum(maxSelectNum)
             .isDisplayCamera(isDisplayCamera)
-            .setImageEngine(CoilEngine())
+            .setImageEngine(GlideEngine.createGlideEngine())
             .setSandboxFileEngine { context, srcPath, mineType, call ->
                 val copyPathToSandbox =
                     SandboxTransformUtils.copyPathToSandbox(context, srcPath, mineType)
