@@ -4,9 +4,12 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
-import coil.load
-import coil.transform.RoundedCornersTransformation
+import com.gnhd.base.R
+import com.gnhd.base.utils.getResDrawable
+import me.bzcoder.easyglide.EasyGlide.loadImage
+import me.bzcoder.easyglide.EasyGlide.loadRoundCornerImage
 
 
 /**
@@ -20,24 +23,31 @@ import coil.transform.RoundedCornersTransformation
 object CommonBindingAdapter {
     @JvmStatic
     @BindingAdapter(value = ["imageUrlRadius", "placeHolder"], requireAll = false)
-    fun loadUrlRadiusTen(view: ImageView, url: String?, placeHolder: Drawable?) {
-        //1. 加载图片
-        view.load(url) {
-            transformations(RoundedCornersTransformation(10f))
-            placeholder(placeHolder)
-        }
-    }
-
-    @JvmStatic
-    @BindingAdapter(value = ["imageUrl", "placeHolder"], requireAll = false)
-    fun loadUrl(view: ImageView, url: String?, placeHolder: Drawable?) {
+    fun loadRoundCornerImage(view: ImageView, url: String?, @DrawableRes placeHolder: Int?) {
         //1. 加载图片
         if (url.isNullOrEmpty()) {
             return
         }
-        view.load(url) {
-            placeholder(placeHolder)
+        view.loadRoundCornerImage(
+            view.context,
+            url,
+            radius = 10,
+            placeHolder = placeHolder ?: R.drawable.ps_image_placeholder
+        )
+    }
+
+    @JvmStatic
+    @BindingAdapter(value = ["imageUrl", "placeHolder"], requireAll = false)
+    fun loadUrl(view: ImageView, url: String?, @DrawableRes placeHolder: Int?) {
+        //1. 加载图片
+        if (url.isNullOrEmpty()) {
+            return
         }
+        view.loadImage(
+            context = view.context,
+            url = url,
+            placeHolder = placeHolder ?: R.drawable.ps_image_placeholder
+        )
     }
 
     @JvmStatic
