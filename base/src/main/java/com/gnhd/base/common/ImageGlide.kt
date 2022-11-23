@@ -28,7 +28,7 @@ object ImageGlide {
      */
 
     @JvmStatic
-    fun ImageView.loadImage(@RawRes @DrawableRes drawableId: Int) {
+    fun ImageView.load(@RawRes @DrawableRes drawableId: Int) {
         loadImage(
             application.applicationContext, GlideConfigImpl
                 .builder()
@@ -42,7 +42,7 @@ object ImageGlide {
 
     @JvmStatic
     @JvmOverloads
-    fun ImageView.loadImage(
+    fun ImageView.load(
         url: String?,
         @DrawableRes placeHolder: Int = placeHolderImageView,
         onProgressListener: OnProgressListener? = null,
@@ -64,38 +64,9 @@ object ImageGlide {
         )
     }
 
-    /**
-     * 加载本地图片
-     * @param context
-     * @param resizeX
-     * @param resizeY
-     */
     @JvmStatic
     @JvmOverloads
-    fun ImageView.loadResizeXYImage(
-        url: String?,
-        resizeX: Int,
-        resizeY: Int,
-        @DrawableRes placeHolder: Int = placeHolderImageView
-    ) {
-        loadImage(
-            application.applicationContext,
-            GlideConfigImpl
-                .builder()
-                .url(url)
-                .isCropCenter(true)
-                .isCrossFade(true)
-                .resize(resizeX, resizeY)
-                .errorPic(placeHolder)
-                .placeholder(placeHolder)
-                .imageView(this)
-                .build()
-        )
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    fun ImageView.loadCircleImage(
+    fun ImageView.loadCircle(
         url: String?,
         @DrawableRes placeHolder: Int = circlePlaceholderImageView
     ) {
@@ -113,29 +84,10 @@ object ImageGlide {
         )
     }
 
-    @JvmStatic
-    @JvmOverloads
-    fun ImageView.loadGrayImage(
-        url: String?,
-        @DrawableRes placeHolder: Int = placeHolderImageView
-    ) {
-        loadImage(
-            application.applicationContext,
-            GlideConfigImpl
-                .builder()
-                .url(url)
-                .transformation(CenterCrop(), GrayscaleTransformation())
-                .isCrossFade(true)
-                .errorPic(placeHolder)
-                .placeholder(placeHolder)
-                .imageView(this)
-                .build()
-        )
-    }
 
     @JvmStatic
     @JvmOverloads
-    fun ImageView.loadBlurImage(
+    fun ImageView.loadBlur(
         url: String?,
         radius: Int = 10,
         @DrawableRes placeHolder: Int = placeHolderImageView
@@ -156,7 +108,7 @@ object ImageGlide {
 
     @JvmStatic
     @JvmOverloads
-    fun ImageView.loadRoundCornerImage(
+    fun ImageView.loadRoundCorner(
         url: String?,
         radius: Int = 40,
         margin: Int = 0,
@@ -178,7 +130,7 @@ object ImageGlide {
 
     @JvmStatic
     @JvmOverloads
-    fun ImageView.loadCircleWithBorderImage(
+    fun ImageView.loadCircleWithBorder(
         url: String?,
         borderWidth: Int = 2,
         @ColorInt borderColor: Int = 0xACACAC,
@@ -200,7 +152,7 @@ object ImageGlide {
 
     @JvmStatic
     @JvmOverloads
-    fun ImageView.loadBorderImage(
+    fun ImageView.loadBorder(
         url: String?,
         borderWidth: Int = 2,
         @ColorInt borderColor: Int = 0xACACAC,
@@ -219,34 +171,5 @@ object ImageGlide {
                 .build()
         )
     }
-
-    /**
-     * 提供了一下如下变形类，支持叠加使用
-     * BlurTransformation
-     * GrayScaleTransformation
-     * RoundedCornersTransformation
-     * CircleCrop
-     * CenterCrop
-     */
-    @JvmStatic
-    fun ImageView.loadImageWithTransformation(
-        url: String?,
-        vararg bitmapTransformations: BitmapTransformation,
-        @DrawableRes placeHolder: Int = placeHolderImageView
-    ) {
-        loadImage(
-            application.applicationContext,
-            GlideConfigImpl
-                .builder()
-                .url(url)
-                .transformation(*bitmapTransformations)
-                .isCrossFade(true)
-                .errorPic(placeHolder)
-                .placeholder(placeHolder)
-                .imageView(this)
-                .build()
-        )
-    }
-
 }
 
