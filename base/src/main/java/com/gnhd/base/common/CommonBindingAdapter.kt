@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.databinding.BindingAdapter
 import com.gnhd.base.R
+import com.gnhd.base.utils.dp2px
 import com.gnhd.base.utils.getResDrawable
 import me.bzcoder.easyglide.EasyGlide.loadImage
 import me.bzcoder.easyglide.EasyGlide.loadRoundCornerImage
@@ -22,8 +23,8 @@ import me.bzcoder.easyglide.EasyGlide.loadRoundCornerImage
  */
 object CommonBindingAdapter {
     @JvmStatic
-    @BindingAdapter(value = ["imageUrlRadius", "placeHolder"], requireAll = false)
-    fun loadRoundCornerImage(view: ImageView, url: String?, @DrawableRes placeHolder: Int?) {
+    @BindingAdapter(value = ["imageUrlRadius", "imageRadius"], requireAll = false)
+    fun loadRoundCornerImage(view: ImageView, url: String?, imageRadius: Int?) {
         //1. 加载图片
         if (url.isNullOrEmpty()) {
             return
@@ -31,8 +32,8 @@ object CommonBindingAdapter {
         view.loadRoundCornerImage(
             view.context,
             url,
-            radius = 10,
-            placeHolder = placeHolder ?: R.drawable.ps_image_placeholder
+            radius = imageRadius ?: 5.dp2px,
+            placeHolder = R.drawable.ps_image_placeholder
         )
     }
 
