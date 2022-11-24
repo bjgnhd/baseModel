@@ -33,7 +33,7 @@ object ImageGlide {
             application.applicationContext, GlideConfigImpl
                 .builder()
                 .drawableId(drawableId)
-                .isCropCenter(true)
+
                 .imageView(this)
                 .build()
         )
@@ -53,7 +53,7 @@ object ImageGlide {
             GlideConfigImpl
                 .builder()
                 .url(url)
-                .isCropCenter(true)
+
                 .isCrossFade(true)
                 .errorPic(placeHolder)
                 .placeholder(placeHolder)
@@ -97,7 +97,7 @@ object ImageGlide {
             GlideConfigImpl
                 .builder()
                 .url(url)
-                .transformation(CenterCrop(), BlurTransformation(context, radius))
+                .transformation( BlurTransformation(context, radius))
                 .isCrossFade(true)
                 .errorPic(placeHolder)
                 .placeholder(placeHolder)
@@ -119,7 +119,7 @@ object ImageGlide {
             GlideConfigImpl
                 .builder()
                 .url(url)
-                .transformation(CenterCrop(), RoundedCornersTransformation(radius, margin))
+                .transformation(RoundedCornersTransformation(radius, margin))
                 .isCrossFade(true)
                 .errorPic(placeHolder)
                 .placeholder(placeHolder)
