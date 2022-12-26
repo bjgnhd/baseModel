@@ -19,11 +19,11 @@ object PermissionXUtil {
      * 判断一个或多个权限是否全部授予了
      */
     fun checkIsGranted(vararg permissions: String): Boolean {
-        return XXPermissions.isGranted(application, permissions)
+        return XXPermissions.isGranted(ActivityManager.getInstance().getTopActivity()!!, permissions)
     }
 
     fun checkPermission(onRequestCallback: () -> Unit = {}, vararg permissions: String) {
-        XXPermissions.with(application)
+        XXPermissions.with(ActivityManager.getInstance().getTopActivity()!!)
             // 申请单个权限
             .permission(permissions)
             // 设置权限请求拦截器（局部设置）
@@ -43,7 +43,7 @@ object PermissionXUtil {
                         DToastUtils.show("被永久拒绝授权，请手动授予权限")
                         // 如果是被永久拒绝就跳转到应用权限系统设置页面
                         XXPermissions.startPermissionActivity(
-                            application, permissions
+                            ActivityManager.getInstance().getTopActivity()!!, permissions
                         )
                     } else {
                         DToastUtils.show("获取权限失败")
