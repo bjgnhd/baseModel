@@ -2,6 +2,8 @@ package com.gnhd.base.utils
 
 import com.gnhd.base.listener.OnResultListener
 import com.gnhd.base.manager.ActivityManager
+import com.gnhd.base.utils.permission.PermissionConstants
+import com.gnhd.base.utils.permission.PermissionXUtil
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.engine.CompressFileEngine
@@ -25,33 +27,36 @@ object PictureSelectorUtils {
      * 单独拍照
      */
     fun openCamera(listener: OnResultListener?) {
-        PictureSelector.create(ActivityManager.getInstance().getTopActivity())
-            .openCamera(SelectMimeType.ofImage())
-            .setCompressEngine(CompressFileEngine { context, source, call ->
-                Luban.with(context).load(source).ignoreBy(80)
-                    .setCompressListener(object : OnNewCompressListener {
-                        override fun onStart() {
+        PermissionXUtil.checkPermission({
+            PictureSelector.create(ActivityManager.getInstance().getTopActivity())
+                .openCamera(SelectMimeType.ofImage())
+                .setCompressEngine(CompressFileEngine { context, source, call ->
+                    Luban.with(context).load(source).ignoreBy(80)
+                        .setCompressListener(object : OnNewCompressListener {
+                            override fun onStart() {
 
-                        }
+                            }
 
-                        override fun onSuccess(source: String?, compressFile: File?) {
-                            call?.onCallback(source, compressFile?.absolutePath)
-                        }
+                            override fun onSuccess(source: String?, compressFile: File?) {
+                                call?.onCallback(source, compressFile?.absolutePath)
+                            }
 
-                        override fun onError(source: String?, e: Throwable?) {
-                            call?.onCallback(source, null)
-                        }
-                    }).launch()
-            })
-            .forResult(object : OnResultCallbackListener<LocalMedia> {
-                override fun onResult(result: ArrayList<LocalMedia>?) {
-                    listener?.onResult(result)
-                }
+                            override fun onError(source: String?, e: Throwable?) {
+                                call?.onCallback(source, null)
+                            }
+                        }).launch()
+                })
+                .forResult(object : OnResultCallbackListener<LocalMedia> {
+                    override fun onResult(result: ArrayList<LocalMedia>?) {
+                        listener?.onResult(result)
+                    }
 
-                override fun onCancel() {
-                    listener?.onCancel()
-                }
-            })
+                    override fun onCancel() {
+                        listener?.onCancel()
+                    }
+                })
+        },PermissionConstants.CAMERA)
+
     }
 
     /**
@@ -62,40 +67,43 @@ object PictureSelectorUtils {
         maxSelectNum: Int = 1,
         listener: OnResultListener?
     ) {
-        PictureSelector.create(ActivityManager.getInstance().getTopActivity())
-            .openGallery(SelectMimeType.ofImage())
-            .setMaxSelectNum(maxSelectNum)
-            .isDisplayCamera(isDisplayCamera)
-            .setImageEngine(GlideEngine.createGlideEngine())
-            .setSandboxFileEngine { context, srcPath, mineType, call ->
-                val copyPathToSandbox =
-                    SandboxTransformUtils.copyPathToSandbox(context, srcPath, mineType)
-                call?.onCallback(srcPath, copyPathToSandbox)
-            }
-            .setCompressEngine(CompressFileEngine { context, source, call ->
-                Luban.with(context).load(source).ignoreBy(80)
-                    .setCompressListener(object : OnNewCompressListener {
-                        override fun onStart() {
-
-                        }
-
-                        override fun onSuccess(source: String?, compressFile: File?) {
-                            call?.onCallback(source, compressFile?.absolutePath)
-                        }
-
-                        override fun onError(source: String?, e: Throwable?) {
-                            call?.onCallback(source, null)
-                        }
-                    }).launch()
-            })
-            .forResult(object : OnResultCallbackListener<LocalMedia> {
-                override fun onResult(result: ArrayList<LocalMedia>?) {
-                    listener?.onResult(result)
+        PermissionXUtil.checkPermission({
+            PictureSelector.create(ActivityManager.getInstance().getTopActivity())
+                .openGallery(SelectMimeType.ofImage())
+                .setMaxSelectNum(maxSelectNum)
+                .isDisplayCamera(isDisplayCamera)
+                .setImageEngine(GlideEngine.createGlideEngine())
+                .setSandboxFileEngine { context, srcPath, mineType, call ->
+                    val copyPathToSandbox =
+                        SandboxTransformUtils.copyPathToSandbox(context, srcPath, mineType)
+                    call?.onCallback(srcPath, copyPathToSandbox)
                 }
+                .setCompressEngine(CompressFileEngine { context, source, call ->
+                    Luban.with(context).load(source).ignoreBy(80)
+                        .setCompressListener(object : OnNewCompressListener {
+                            override fun onStart() {
 
-                override fun onCancel() {
-                    listener?.onCancel()
-                }
-            })
+                            }
+
+                            override fun onSuccess(source: String?, compressFile: File?) {
+                                call?.onCallback(source, compressFile?.absolutePath)
+                            }
+
+                            override fun onError(source: String?, e: Throwable?) {
+                                call?.onCallback(source, null)
+                            }
+                        }).launch()
+                })
+                .forResult(object : OnResultCallbackListener<LocalMedia> {
+                    override fun onResult(result: ArrayList<LocalMedia>?) {
+                        listener?.onResult(result)
+                    }
+
+                    override fun onCancel() {
+                        listener?.onCancel()
+                    }
+                })
+        }, PermissionConstants.READ_EXTERNAL_STORAGE)
+
     }
 }
