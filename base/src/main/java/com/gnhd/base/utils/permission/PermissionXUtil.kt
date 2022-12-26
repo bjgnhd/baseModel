@@ -1,5 +1,6 @@
 package com.gnhd.base.utils.permission
 
+import com.gnhd.base.base.application
 import com.gnhd.base.manager.ActivityManager
 import com.gnhd.base.utils.DToastUtils
 import com.hjq.permissions.OnPermissionCallback
@@ -18,11 +19,11 @@ object PermissionXUtil {
      * 判断一个或多个权限是否全部授予了
      */
     fun checkIsGranted(vararg permissions: String): Boolean {
-        return XXPermissions.isGranted(ActivityManager.getInstance().getTopActivity(), permissions)
+        return XXPermissions.isGranted(application, permissions)
     }
 
     fun checkPermission(onRequestCallback: () -> Unit = {}, vararg permissions: String) {
-        XXPermissions.with(ActivityManager.getInstance().getTopActivity())
+        XXPermissions.with(application)
             // 申请单个权限
             .permission(permissions)
             // 设置权限请求拦截器（局部设置）
@@ -42,7 +43,7 @@ object PermissionXUtil {
                         DToastUtils.show("被永久拒绝授权，请手动授予权限")
                         // 如果是被永久拒绝就跳转到应用权限系统设置页面
                         XXPermissions.startPermissionActivity(
-                            ActivityManager.getInstance().getTopActivity(), permissions
+                            application, permissions
                         )
                     } else {
                         DToastUtils.show("获取权限失败")

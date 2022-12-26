@@ -2,8 +2,8 @@ package com.gnhd.base.utils
 
 import com.gnhd.base.listener.OnResultListener
 import com.gnhd.base.manager.ActivityManager
-import com.gnhd.base.utils.permission.PermissionConstants
 import com.gnhd.base.utils.permission.PermissionXUtil
+import com.hjq.permissions.Permission
 import com.luck.picture.lib.basic.PictureSelector
 import com.luck.picture.lib.config.SelectMimeType
 import com.luck.picture.lib.engine.CompressFileEngine
@@ -55,7 +55,7 @@ object PictureSelectorUtils {
                         listener?.onCancel()
                     }
                 })
-        },PermissionConstants.CAMERA)
+        }, Permission.CAMERA)
 
     }
 
@@ -103,7 +103,7 @@ object PictureSelectorUtils {
                         listener?.onCancel()
                     }
                 })
-        }, PermissionConstants.READ_EXTERNAL_STORAGE)
+        }, Permission.READ_EXTERNAL_STORAGE)
 
     }
 }

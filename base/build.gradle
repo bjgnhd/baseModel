@@ -9,7 +9,7 @@ plugins {
 //友盟推送
 apply from: '../umeng.gradle'
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 21
@@ -43,7 +43,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.gnhd.base'
                 artifactId = 'v'
-                version = '1.3.4'
+                version = '1.3.5'
             }
         }
     }
